@@ -23,8 +23,8 @@ my_user=['xxxxx@xxx.xxx','xxxxx@xxx.xxx']
 def query():
     '''
     ###https://github.com/hxgdzyuyi/tang_poetry/blob/master/tang_poetry.sql
-    CREATE TABLE new_pc as SELECT * FROM poetries WHERE id IS null;
-    CREATE TABLE `new_pc` (
+    CREATE TABLE new_poetries as SELECT * FROM poetries WHERE id IS null;
+    CREATE TABLE `new_poetries` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `name` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
         `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -40,7 +40,7 @@ def query():
     for i in cur:
         print i[0],i[1],i[2],i[3]
     deleted_sql = "delete from poetries where id=%d;" %(i[0])
-    created_sql = "insert into new_pc(name, title, content) values ('%s', '%s', '%s');" % (i[1],i[2],i[3])
+    created_sql = "insert into new_poetries(name, title, content) values ('%s', '%s', '%s');" % (i[1],i[2],i[3])
     
     cur.close()
     con.close()
