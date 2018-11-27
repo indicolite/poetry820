@@ -11,8 +11,8 @@ use pgloader: from source sqlite3 to dest pg10 with [ci.db](https://github.com/c
 
 ```
 begin;
-update ci set content=regexp_replace("content", '词牌介绍', '');
+update ci set content = regexp_replace("content", '词牌介绍', '');
 update ci set content = regexp_replace("content", E'>>', '');
-update ci set content=regexp_replace(content, '\s+$', E'');
+update ci set content = regexp_replace(content, '\s+$', E'');
 commit;
 ```
